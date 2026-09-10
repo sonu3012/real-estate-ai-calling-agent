@@ -1,0 +1,129 @@
+{
+  "properties": [
+    {
+      "project_name": "Green Valley Residency",
+      "location": "Gurgaon Sector 70",
+      "property_type": "Apartment",
+      "configurations": ["2 BHK", "3 BHK"],
+      "price_range": "₹65 lakh - ₹1.20 crore",
+      "amenities": [
+        "Swimming Pool",
+        "Gym",
+        "Clubhouse",
+        "Parking",
+        "Children's Play Area",
+        "24x7 Security"
+      ],
+      "possession": "December 2028",
+      "highlights": [
+        "Good connectivity to Golf Course Extension Road",
+        "Near schools and hospitals",
+        "Suitable for families"
+      ]
+    },
+    {
+      "project_name": "Urban Heights",
+      "location": "Gurgaon Sector 82",
+      "property_type": "Apartment",
+      "configurations": ["2 BHK", "3 BHK", "4 BHK"],
+      "price_range": "₹75 lakh - ₹1.80 crore",
+      "amenities": [
+        "Clubhouse",
+        "Swimming Pool",
+        "Gym",
+        "Jogging Track",
+        "Parking",
+        "Security"
+      ],
+      "possession": "June 2029",
+      "highlights": [
+        "Close to Dwarka Expressway",
+        "Near shopping and commercial areas",
+        "Good option for family living"
+      ]
+    },
+    {
+      "project_name": "Palm Residency",
+      "location": "Gurgaon Sector 93",
+      "property_type": "Apartment",
+      "configurations": ["2 BHK", "3 BHK"],
+      "price_range": "₹60 lakh - ₹1.10 crore",
+      "amenities": [
+        "Gym",
+        "Clubhouse",
+        "Garden",
+        "Parking",
+        "Security",
+        "Power Backup"
+      ],
+      "possession": "March 2028",
+      "highlights": [
+        "Near Dwarka Expressway",
+        "Peaceful residential area",
+        "Suitable for first-time buyers"
+      ]
+    },
+    {
+      "project_name": "Royal Greens",
+      "location": "Gurgaon Sector 59",
+      "property_type": "Luxury Apartment",
+      "configurations": ["3 BHK", "4 BHK"],
+      "price_range": "₹1.50 crore - ₹3.00 crore",
+      "amenities": [
+        "Luxury Clubhouse",
+        "Swimming Pool",
+        "Gym",
+        "Spa",
+        "Sports Area",
+        "Covered Parking",
+        "24x7 Security"
+      ],
+      "possession": "December 2029",
+      "highlights": [
+        "Premium location",
+        "Near Golf Course Road",
+        "Luxury lifestyle amenities"
+      ]
+    },
+    {
+      "project_name": "Smart City Plots",
+      "location": "Sohna, Gurgaon",
+      "property_type": "Residential Plot",
+      "configurations": ["100 Gaz", "150 Gaz", "200 Gaz"],
+      "price_range": "₹35 lakh - ₹75 lakh",
+      "amenities": [
+        "Gated Community",
+        "Road Connectivity",
+        "Street Lighting",
+        "Security",
+        "Green Areas"
+      ],
+      "possession": "Development expected by 2028",
+      "highlights": [
+        "Growing Sohna-Gurgaon corridor",
+        "Suitable for investment",
+        "Residential plot option"
+      ]
+    },
+    {
+      "project_name": "Business Square",
+      "location": "Gurgaon Sector 48",
+      "property_type": "Commercial Property",
+      "configurations": ["Retail Shop", "Office Space"],
+      "price_range": "₹80 lakh - ₹2.50 crore",
+      "amenities": [
+        "Dedicated Parking",
+        "Security",
+        "Power Backup",
+        "Food Court",
+        "High-Speed Elevators"
+      ],
+      "possession": "September 2028",
+      "highlights": [
+        "Located near major residential areas",
+        "Suitable for office or retail use",
+        "Good road connectivity"
+      ]
+    }
+  ]
+}
