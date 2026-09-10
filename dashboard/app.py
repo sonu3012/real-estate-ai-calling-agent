@@ -52,86 +52,163 @@ def get_all_leads():
 
 
 # =========================================================
-# CUSTOM CSS
+# CUSTOM CSS — "Browser App" theme with gradient type
 # =========================================================
 
 st.markdown("""
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
 .main {
-    background-color: #f5f7fb;
+    background: radial-gradient(circle at 10% 0%, #eef2ff 0%, #f5f7fb 35%, #f5f7fb 100%);
 }
 
 .block-container {
-    padding-top: 2rem;
+    padding-top: 1.2rem;
     padding-bottom: 3rem;
     max-width: 1400px;
 }
 
-/* Header */
+/* ---------- Fake browser chrome bar ---------- */
+
+.browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #e5e7eb;
+    border-radius: 14px 14px 0 0;
+    padding: 10px 16px;
+    margin-bottom: -2px;
+}
+
+.browser-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red { background: #ff5f57; }
+.dot-yellow { background: #febc2e; }
+.dot-green { background: #28c840; }
+
+.browser-url {
+    margin-left: 14px;
+    background: white;
+    border-radius: 8px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: #6b7280;
+    flex: 1;
+    max-width: 420px;
+    border: 1px solid #d1d5db;
+}
+
+/* ---------- Header ---------- */
 
 .dashboard-header {
-    background: linear-gradient(135deg, #172554, #1e3a8a);
-    padding: 30px;
-    border-radius: 18px;
-    margin-bottom: 25px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 45%, #4338ca 100%);
+    padding: 38px 34px;
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 12px 30px rgba(30, 41, 59, 0.25);
+}
+
+.dashboard-header::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(129,140,248,0.35) 0%, transparent 70%);
 }
 
 .dashboard-title {
-    color: white;
-    font-size: 38px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #ffffff 0%, #c7d2fe 50%, #93c5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 42px;
     font-weight: 800;
+    letter-spacing: -0.5px;
+    position: relative;
+    z-index: 1;
 }
 
 .dashboard-subtitle {
     color: #dbeafe;
     font-size: 16px;
     margin-top: 8px;
+    position: relative;
+    z-index: 1;
 }
 
+/* ---------- Section headings with gradient ---------- */
 
-/* Metric cards */
+.gradient-heading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    background: linear-gradient(90deg, #4338ca, #7c3aed, #db2777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 6px 0 14px 0;
+}
+
+/* ---------- Metric cards ---------- */
 
 .metric-box {
-    background: white;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(6px);
     padding: 22px;
-    border-radius: 16px;
+    border-radius: 18px;
     border: 1px solid #e5e7eb;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 6px 18px rgba(30,41,59,0.07);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.metric-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(67,56,202,0.15);
 }
 
 .metric-label {
     color: #6b7280;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
 }
 
 .metric-number {
-    color: #111827;
-    font-size: 32px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #1e3a8a, #4338ca, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 34px;
     font-weight: 800;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 .metric-small {
     color: #9ca3af;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
-
-/* Lead card */
-
-.lead-card {
-    background: white;
-    padding: 22px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-}
+/* ---------- Lead cards ---------- */
 
 .lead-name {
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     font-weight: 700;
     color: #111827;
@@ -143,19 +220,78 @@ st.markdown("""
 }
 
 .lead-tag {
-    background: #eef2ff;
-    color: #3730a3;
-    padding: 5px 10px;
+    display: inline-block;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    color: white;
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 12px;
     font-weight: 600;
 }
 
+/* Streamlit's bordered container used for lead cards */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    border-radius: 16px !important;
+    box-shadow: 0 4px 14px rgba(30,41,59,0.06);
+    transition: box-shadow 0.15s ease;
+}
 
-/* Sidebar */
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    box-shadow: 0 8px 22px rgba(67,56,202,0.14);
+}
+
+/* ---------- Tabs ---------- */
+
+.stTabs [data-baseweb="tab-list"] {
+    gap: 6px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: white;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 18px;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(90deg, #4338ca, #7c3aed) !important;
+    color: white !important;
+}
+
+/* ---------- Buttons ---------- */
+
+.stButton > button {
+    background: linear-gradient(90deg, #4338ca, #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.stButton > button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    color: white;
+}
+
+/* ---------- Sidebar ---------- */
 
 section[data-testid="stSidebar"] {
-    background-color: #111827;
+    background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+}
+
+section[data-testid="stSidebar"] * {
+    color: #e5e7eb !important;
+}
+
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] > div {
+    background-color: #1f2937 !important;
+    color: #f9fafb !important;
+    border-radius: 8px !important;
 }
 
 </style>
@@ -252,20 +388,24 @@ with st.sidebar:
 
 
 # =========================================================
-# HEADER
+# FAKE BROWSER CHROME + HEADER
 # =========================================================
 
 st.markdown("""
-<div class="dashboard-header">
+<div class="browser-bar">
+    <div class="browser-dot dot-red"></div>
+    <div class="browser-dot dot-yellow"></div>
+    <div class="browser-dot dot-green"></div>
+    <div class="browser-url">🔒 realestate-ai-crm.app/dashboard</div>
+</div>
 
+<div class="dashboard-header">
     <div class="dashboard-title">
         🏠 Real Estate AI Agent
     </div>
-
     <div class="dashboard-subtitle">
         AI-powered customer qualification & lead management dashboard
     </div>
-
 </div>
 """, unsafe_allow_html=True)
 
@@ -335,7 +475,7 @@ property_count = (
 filtered_count = len(filtered)
 
 
-st.subheader("📊 Dashboard Overview")
+st.markdown('<div class="gradient-heading">📊 Dashboard Overview</div>', unsafe_allow_html=True)
 
 c1, c2, c3, c4 = st.columns(4)
 
@@ -406,7 +546,7 @@ tab1, tab2, tab3 = st.tabs(
 
 with tab1:
 
-    st.subheader("👥 Customer Leads")
+    st.markdown('<div class="gradient-heading">👥 Customer Leads</div>', unsafe_allow_html=True)
 
     if filtered.empty:
 
@@ -432,7 +572,8 @@ with tab1:
             with st.container(border=True):
 
                 st.markdown(
-                    f"### 👤 {name}"
+                    f'<div class="lead-name">👤 {name}</div>',
+                    unsafe_allow_html=True
                 )
 
                 st.caption(
@@ -480,7 +621,7 @@ with tab1:
 
 with tab2:
 
-    st.subheader("📈 Lead Analytics")
+    st.markdown('<div class="gradient-heading">📈 Lead Analytics</div>', unsafe_allow_html=True)
 
     if leads.empty:
 
@@ -492,7 +633,7 @@ with tab2:
 
         with col1:
 
-            st.markdown("### 📍 Leads by Location")
+            st.markdown("#### 📍 Leads by Location")
 
             location_data = (
                 leads["location"]
@@ -500,12 +641,12 @@ with tab2:
                 .value_counts()
             )
 
-            st.bar_chart(location_data)
+            st.bar_chart(location_data, color="#7c3aed")
 
 
         with col2:
 
-            st.markdown("### 🏢 Leads by Property Type")
+            st.markdown("#### 🏢 Leads by Property Type")
 
             property_data = (
                 leads["property_type"]
@@ -513,14 +654,14 @@ with tab2:
                 .value_counts()
             )
 
-            st.bar_chart(property_data)
+            st.bar_chart(property_data, color="#4338ca")
 
 
         col3, col4 = st.columns(2)
 
         with col3:
 
-            st.markdown("### 🎯 Customer Purpose")
+            st.markdown("#### 🎯 Customer Purpose")
 
             purpose_data = (
                 leads["purpose"]
@@ -528,12 +669,12 @@ with tab2:
                 .value_counts()
             )
 
-            st.bar_chart(purpose_data)
+            st.bar_chart(purpose_data, color="#db2777")
 
 
         with col4:
 
-            st.markdown("### ⏱️ Purchase Timeline")
+            st.markdown("#### ⏱️ Purchase Timeline")
 
             timeline_data = (
                 leads["timeline"]
@@ -541,7 +682,7 @@ with tab2:
                 .value_counts()
             )
 
-            st.bar_chart(timeline_data)
+            st.bar_chart(timeline_data, color="#0ea5e9")
 
 
 # =========================================================
@@ -550,7 +691,7 @@ with tab2:
 
 with tab3:
 
-    st.subheader("🔍 Complete Lead Details")
+    st.markdown('<div class="gradient-heading">🔍 Complete Lead Details</div>', unsafe_allow_html=True)
 
     if leads.empty:
 
@@ -573,7 +714,7 @@ with tab3:
 
         with col1:
 
-            st.markdown("### 👤 Customer Information")
+            st.markdown("#### 👤 Customer Information")
 
             st.info(
                 f"""
@@ -592,7 +733,7 @@ with tab3:
 
         with col2:
 
-            st.markdown("### 🏠 Property Requirement")
+            st.markdown("#### 🏠 Property Requirement")
 
             st.info(
                 f"""
@@ -607,7 +748,7 @@ with tab3:
             )
 
 
-        st.markdown("### 📋 Complete Record")
+        st.markdown("#### 📋 Complete Record")
 
         st.dataframe(
             selected.to_frame("Value"),
