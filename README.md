@@ -147,7 +147,6 @@ The Vapi assistant communicates with the Flask backend through publicly accessib
                                   │    Streamlit    │
                                   │    Dashboard    │
                                   └─────────────────┘
-
 🔄 Conversation Flow
 
 The AI agent follows a real estate sales qualification flow.
